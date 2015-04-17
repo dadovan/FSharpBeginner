@@ -1,4 +1,6 @@
-﻿open Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿module LinearRegression
+
+open Microsoft.VisualStudio.TestTools.UnitTesting;
 
 let square x = x * x
 
@@ -32,8 +34,7 @@ let rec fullGD (t : float list) a d i currentAllCost =
     else
         fullGD newt a d i newAllCost
 
-[<EntryPoint>]
-let main argv = 
+let basicLRTest =
     let data = [ (0.0, 1.0); (1.0, 2.0); (3.0, 2.0); (4.0, 3.0)];
     printfn "Data: %A" data
 
@@ -47,5 +48,3 @@ let main argv =
     let newT = fullGD [4.0; 1.2] 0.01 data 1 (float System.Int32.MaxValue)
     Assert.AreEqual(1.2, newT.[0], 0.0001);
     Assert.AreEqual(0.4, newT.[1], 0.0001);
-
-    0 // return an integer exit code
