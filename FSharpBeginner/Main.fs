@@ -7,6 +7,7 @@ open DataLoader
 
 [<EntryPoint>]
 let main argv = 
+    printfn "%A" argv
     basicFeedForwardTest
     basicLRTest
     0 // exit code
